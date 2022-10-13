@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Used to print Best school 10 times but Hi
+#instead of best school on iteration 9
+#using while loop
+
+a=0
+while [ $a -lt 10 ];
+do
+	if ((a != 8))
+	then
+		echo "Best School"
+	else
+		echo "Hi"
+	fi
+
+	((a++))
+done
+		
