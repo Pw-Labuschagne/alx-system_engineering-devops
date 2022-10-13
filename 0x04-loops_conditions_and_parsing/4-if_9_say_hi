@@ -6,13 +6,11 @@
 a=0
 while [ $a -lt 10 ];
 do
-	if ((a != 8))
+	if [ $a -eq 9 ]
 	then
-		echo "Best School"
-	else
 		echo "Hi"
 	fi
-
+		echo "Best school"
 	((a++))
 done
 		
