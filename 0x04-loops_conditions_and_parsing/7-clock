@@ -9,13 +9,12 @@ m=0
 
 while [ $h -lt 13 ]
 do
-	if [ $m -eq 60 ] || [ $m -eq 0 ]
-	then
-		echo "Hour: $h"
-		(( m=1 ))
-		(( h++ ))
-	else
+	echo "Hour: $h"
+	m=1
+	while [ $m -lt 60 ]
+	do
 		echo "$m"
 		(( m++ ))
-	fi
+	done
+	(( h++ ))
 done
