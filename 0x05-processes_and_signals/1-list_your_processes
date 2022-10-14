@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #Bash script that displays a list of currently running processes.
 
-ps -A
+ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
+
