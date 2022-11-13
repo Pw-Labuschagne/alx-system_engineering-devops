@@ -1,0 +1,104 @@
+
+
+
+Secured and monitored web infrastructure
+
+
+#1.Firstly we have 3 firewalls.
+
+What is a firewall:
+
+	*A firewall is a division between a private network and an outer network, which manages the traffic that is passing between two networks.
+	
+	*It can be implemented either through hardware(a physical appliance that is deployed to enfore a network boundry) or software(a network
+	 security device that monitors and filters incoming and outgoing network traffic).
+
+	*Firewalls is also considered to be both networking and security technology.
+
+	*Considered as the bare minimum for standard network security.
+
+What would be the purpose of our firewalls?
+	
+	-They will be implemented to protect the network from unwanted and unauthorized users.
+	-It will monitor and filter incoming and outgoing network traffic.
+	-Prevent malicious software from accessing a computer or network via the internet.
+
+
+#2.Now we need a SSL certificate to serve www.foobar.com over HTTPS
+
+What is a SSL certificate:
+	
+	*It is a bit of code on your web that provides security for online communications.
+
+	*They are small data files that cryptographically establish an encrypted link between a web server and a browser.
+
+	*This ensures that all data passed between the web server and the browser remain private.
+
+What is the purpose of our SSL certificate?
+
+	-It will be used to ensure encrypted communication(traffic) between th web server and an external network.
+	-It would prevent malicious data snagging.
+	-It will also be used to ensure privacy and integrity alongside identification.
+
+
+#3.Next we need 3 monitoring clients.(data collection for Sumologic or other monitoring services)
+
+What is a monitoring serive:
+
+	*A monitoring service is used in different ways namely: Server monitoring and application monitoring.
+
+	*Application monitoring is getting data about software you are running and ensuring that it is behaving as expected.
+
+	*Server monitoring is getting data about your physical(or virtual) server and ensuring they are not overloaded(any thing from CPU,
+	 memory, disk or network overload).
+
+What is the purpose of our monitoring clients:
+
+	-It will be used to collect data on how quickly the website loads in to the browser with detailed analysis at every level of the stack.
+	-Used to gather performance data of the application components.
+	-Checkk how the browser is responding from multiple connections(locations) around the globe.
+	-Will be used to analyse the operations of the server and measure its overall health status.
+	-It will also run self tests to ensure that accessibility of the server is intact along with the function to display alerts on any
+	 missing or corrupt files that could cause all sorts of security issues aswell as violations that could occur.
+
+How does the monitoring tools collect data:
+
+	-There is a broad spectrum of monitoring that can take place ex. availibility monitoring, basic wesite and api monitoring, server availibility ect.
+	-The main focus of the monitoring and collectin of data is:
+		*1.Initiates a connection with website or service - Is it available?
+		*2.Checks the return for a response code - Is it responding as expected?
+		*3.Checks the return specified content - Is the website acting as expected?
+		*4.Loads the content into a real browser (real browser monitoring) - Capture a 'point in time'
+		*5.Records load times for each page element as it loads int he browser (performance monitoring) - Is it performing?
+		*6.Does self tests and attempt to log in, conduct a search ect.(web application monitoring) - Is it good?
+		*7.Reports all the findings back to the monitoring service(client) - Visualises it in alerts, dashboards and reports.
+
+
+We also have to ask ourselfs how is traffic served over HTTPS?
+
+	*HTTPS pages typically use one of two secure protocols. The one we will be using is a SSL(Secure Socket Layer) and the other is TLS(Transport
+	 Layer Security). Both these securties is known as 'asymmetric' which means a PKI(Public Key Infrastructre) system is used.
+	
+	*HTTPS uses thes protocols(TLS & SSL) to encrypt communications so that attackers can't steal the data. These security protocols also confirms
+	 the identification of the website to prevent impersonations. This is one of the main reasons for cyber attacks.
+
+
+Now we sit with the following questions:
+
+#1.Why terminating SSL at the load balancer is an issue:
+
+	*Terminating SSL at the load balancer level would leave the traffic between the load balancer and the web servers unencrypted
+
+#2.Why having only one MySQL server capable of accepting writes is an issue
+
+	*Having one MySQL server is an issue because it is not scalable and can act as a single point of failure for the web infrastructure, this means
+	 future implemetations could cause more trouble than needed.
+
+#3.Why having servers with all the same components (database, web server and application server) might be a problem
+
+	*Having servers with all the same components would make the components contend for resources on the server like CPU, Memory,
+	 I/O, etc., which can lead to poor performance and also make it difficult to locate the source of the problem. A setup such
+	 as this is not easily scalable. Fault finding and maintenance will also be extended, as it will be difficult to spot identify the 
+	 root cause of the error.
+
+Author: PW Labuschagne
