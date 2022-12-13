@@ -3,6 +3,14 @@
 
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo ufw allow 'Nginx HTTP'
-echo "Hello Wolrd!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo mkdir -p /var/nginx/html
+nano /var/nginx/html/index.html
+echo "Hello World!" > /var/nginx/html/index.html
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/web_01
+echo "server {
+        listen 80;
+        listen [::]:80;
+	root /var/nginx/html;
+	index index.html index.htm
+}" > /etc/nginx/sites-available/web_01
 sudo service nginx restart
